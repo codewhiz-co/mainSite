@@ -14,7 +14,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Address",
-    details: ["7019 Stirling Rd.", "Davie, FL 33314"],
+    details: ["3015 W. Signature Dr.", "Davie, FL 33314"],
   },
   {
     icon: Clock,

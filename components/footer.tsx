@@ -18,7 +18,7 @@ const navigation = {
   contact: [
     { icon: Mail, text: "info@codewhiz.co" },
     { icon: Phone, text: "+1 (954) 901-8187" },
-    { icon: MapPin, text: "7019 Stirling Rd., Davie, FL 33314" },
+    { icon: MapPin, text: "3015 W. Signature Dr., Davie, FL 33314" },
   ],
 };
 
@@ -87,9 +87,19 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-gray-800 pt-8">
-          <p className="text-center text-xs text-gray-400">
-            &copy; {new Date().getFullYear()} CodeWhiz. All rights reserved.
-          </p>
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-center text-xs text-gray-400">
+              &copy; {new Date().getFullYear()} CodeWhiz. All rights reserved.
+            </p>
+            <div className="flex gap-6">
+              <Link href="/privacy" className="text-xs text-gray-400 hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="text-xs text-gray-400 hover:text-white transition-colors">
+                Terms & Conditions
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

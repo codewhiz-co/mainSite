@@ -43,6 +43,14 @@ const projects: Project[] = [
     metrics: ["300% increase in sales", "65% better conversion", "2M+ products listed"]
   },
   {
+    name: "Attractive Nails & Spa",
+    category: "Beauty & Wellness",
+    description: "Luxury nail spa website with Square booking integration and custom chat system. Features online appointment scheduling, service gallery, and real-time customer support for a premium spa experience.",
+    image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=2340&auto=format&fit=crop",
+    tags: ["React", "Square API", "Custom Chat", "Booking System"],
+    metrics: ["5-star service", "Online booking", "Live chat support"]
+  },
+  {
     name: "HealthWave",
     category: "Healthcare",
     description: "Mobile app for booking medical consultations, managing health records, and tracking medications.",
@@ -124,7 +132,7 @@ const projects: Project[] = [
   }
 ];
 
-const categories = ["All", "Restaurant", "E-commerce", "Healthcare", "Education", "IoT", "Finance", "Sports", "Entertainment", "Sustainability", "Travel"];
+const categories = ["All", "Restaurant", "E-commerce", "Beauty & Wellness", "Healthcare", "Education", "IoT", "Finance", "Sports", "Entertainment", "Sustainability", "Travel"];
 
 export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState("All");

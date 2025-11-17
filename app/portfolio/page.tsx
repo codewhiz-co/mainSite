@@ -32,8 +32,7 @@ const projects: Project[] = [
     description: "Beachfront Mexican restaurant website featuring online ordering, event bookings, and extensive tequila menu. Fort Lauderdale's Tequila Playground offers ocean-view dining with all-day happy hour.",
     image: "/Artboard 1-50.jpg",
     tags: ["React", "Online Ordering", "Event Management", "Responsive Design"],
-    metrics: ["301 tequila menu", "All-day happy hour", "Beachfront location"],
-    link: "https://thesaltysombreroflb.com/"
+    metrics: ["301 tequila menu", "All-day happy hour", "Beachfront location"]
   },
   {
     name: "TrendyMart",
@@ -180,25 +179,14 @@ export default function Portfolio() {
                 className="bg-black/40 border-green-500/20 overflow-hidden group"
               >
                 <div className="relative h-64">
-                  {project.link ? (
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="block h-full">
-                      <Image
-                        src={project.image}
-                        alt={project.name}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </a>
-                  ) : (
-                    <Image
-                      src={project.image}
-                      alt={project.name}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
-                  <div className="absolute bottom-4 left-4 pointer-events-none">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                  <div className="absolute bottom-4 left-4">
                     <span className="text-green-500 text-sm font-medium">
                       {project.category}
                     </span>
@@ -223,7 +211,7 @@ export default function Portfolio() {
                   </div>
 
                   {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
@@ -233,19 +221,6 @@ export default function Portfolio() {
                       </span>
                     ))}
                   </div>
-
-                  {/* Visit Website Link */}
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-green-500 hover:text-green-400 transition-colors group/link"
-                    >
-                      Visit Website
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/link:translate-x-1" />
-                    </a>
-                  )}
                 </div>
               </Card>
             ))}

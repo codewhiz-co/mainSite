@@ -54,7 +54,7 @@ const projects: Project[] = [
     name: "LD Oil Service LLC",
     category: "Oil & Energy",
     description: "Professional oil service company website serving Odessa, Texas. Features comprehensive service information, contact forms, and business profile for the oil and energy industry.",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2340&auto=format&fit=crop",
+    image: "/ldoil.jpg",
     tags: ["React", "Contact Forms", "Business Profile", "Responsive Design"],
     metrics: ["Odessa, TX", "Oil services", "Industry expertise"]
   },

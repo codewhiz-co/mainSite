@@ -35,12 +35,12 @@ const projects: Project[] = [
     metrics: ["301 tequila menu", "All-day happy hour", "Beachfront location"]
   },
   {
-    name: "TrendyMart",
+    name: "Cheese and Meat Club",
     category: "E-commerce",
-    description: "High-performing e-commerce platform with advanced inventory management and seamless payment processing integration.",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2340&auto=format&fit=crop",
-    tags: ["React", "Node.js", "MongoDB", "AWS"],
-    metrics: ["300% increase in sales", "65% better conversion", "2M+ products listed"]
+    description: "Heavily customized Shopify store with custom modules developed by CodeWhiz. Zero third-party applications, fully bespoke functionality including advanced inventory management, custom checkout flows, and subscription management.",
+    image: "https://images.unsplash.com/photo-1452195100486-9cc805987862?q=80&w=2340&auto=format&fit=crop",
+    tags: ["Custom Shopify", "Liquid", "JavaScript", "No Third-Party Apps"],
+    metrics: ["100% custom modules", "Zero dependencies", "Full customization"]
   },
   {
     name: "Attractive Nails & Spa",

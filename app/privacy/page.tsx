@@ -37,7 +37,8 @@ export default function PrivacyPage() {
               <li>Name and contact information (email address, phone number, mailing address)</li>
               <li>Company name and job title</li>
               <li>Payment and billing information</li>
-              <li>Account credentials and authentication information</li>
+              <li>Account credentials and authentication information for Command Center (app.codewhiz.co)</li>
+              <li>User profile information and preferences</li>
               <li>Communication preferences</li>
             </ul>
 
@@ -57,6 +58,19 @@ export default function PrivacyPage() {
               <li>Feedback and communications related to our services</li>
               <li>Files and content provided for project work</li>
             </ul>
+
+            <h3 className="text-xl font-semibold text-white mb-3 mt-4">2.4 Command Center Platform Data</h3>
+            <p className="mb-3">
+              When you use the CodeWhiz Command Center (app.codewhiz.co), we collect additional information:
+            </p>
+            <ul className="list-disc list-inside space-y-2 ml-4">
+              <li>Account activity and login history</li>
+              <li>Platform usage patterns and feature interactions</li>
+              <li>Project documents, messages, and collaboration data</li>
+              <li>Dashboard preferences and custom settings</li>
+              <li>Session data and authentication tokens</li>
+              <li>Performance metrics and error logs</li>
+            </ul>
           </section>
 
           <section>
@@ -74,12 +88,15 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-semibold text-white mb-4">4. How We Use Your Information</h2>
             <p className="mb-4">We use collected information for the following purposes:</p>
             <ul className="list-disc list-inside space-y-2 ml-4">
-              <li>Providing and delivering our services</li>
+              <li>Providing and delivering our services, including the Command Center platform</li>
               <li>Processing payments and maintaining billing records</li>
               <li>Communicating with you about projects, updates, and support</li>
+              <li>Managing your Command Center account and providing platform features</li>
+              <li>Facilitating project collaboration and file sharing through the platform</li>
               <li>Improving our services and developing new features</li>
-              <li>Analyzing website usage and optimizing user experience</li>
+              <li>Analyzing website and platform usage to optimize user experience</li>
               <li>Sending marketing communications (with your consent)</li>
+              <li>Monitoring platform security and preventing unauthorized access</li>
               <li>Complying with legal obligations and protecting our rights</li>
               <li>Preventing fraud and ensuring security</li>
             </ul>
@@ -125,24 +142,38 @@ export default function PrivacyPage() {
               including:
             </p>
             <ul className="list-disc list-inside space-y-2 ml-4">
-              <li>Encryption of data in transit and at rest</li>
+              <li>Encryption of data in transit and at rest using industry-standard protocols</li>
               <li>Secure server infrastructure and access controls</li>
-              <li>Regular security assessments and updates</li>
-              <li>Employee training on data protection</li>
-              <li>Incident response procedures</li>
+              <li>Multi-factor authentication options for Command Center accounts</li>
+              <li>Regular security assessments, penetration testing, and vulnerability scans</li>
+              <li>Secure data centers with physical and network security measures</li>
+              <li>Employee training on data protection and security best practices</li>
+              <li>Incident response procedures and security monitoring</li>
+              <li>Regular backups to prevent data loss</li>
             </ul>
             <p className="mt-4">
               However, no method of transmission over the internet or electronic storage is 100% secure.
-              While we strive to protect your information, we cannot guarantee absolute security.
+              While we strive to protect your information, we cannot guarantee absolute security. You are
+              responsible for maintaining the confidentiality of your Command Center account credentials.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">7. Data Retention</h2>
-            <p>
+            <p className="mb-4">
               We retain your personal information for as long as necessary to fulfill the purposes outlined
-              in this policy, unless a longer retention period is required or permitted by law. When data is
-              no longer needed, we will securely delete or anonymize it.
+              in this policy, unless a longer retention period is required or permitted by law.
+            </p>
+            <ul className="list-disc list-inside space-y-2 ml-4">
+              <li><strong>Account Data:</strong> Retained while your Command Center account is active and for a reasonable period after account closure</li>
+              <li><strong>Project Data:</strong> Retained for the duration of the project and as specified in your agreement</li>
+              <li><strong>Communication Records:</strong> Retained for business purposes and legal compliance</li>
+              <li><strong>Usage Data:</strong> Typically retained for up to 2 years for analytics purposes</li>
+              <li><strong>Backup Data:</strong> May be retained in backup systems for up to 90 days</li>
+            </ul>
+            <p className="mt-4">
+              When data is no longer needed, we will securely delete or anonymize it. You may request deletion
+              of your data at any time by contacting us, subject to legal retention requirements.
             </p>
           </section>
 

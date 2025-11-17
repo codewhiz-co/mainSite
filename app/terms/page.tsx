@@ -42,11 +42,56 @@ export default function TermsPage() {
               <li>Restaurant Management Systems</li>
               <li>Cloud Infrastructure Services</li>
               <li>Cybersecurity Solutions</li>
+              <li>CodeWhiz Command Center (app.codewhiz.co) - Client portal and project management platform</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-4">3. Client Responsibilities</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">3. CodeWhiz Command Center</h2>
+            <p className="mb-4">
+              The CodeWhiz Command Center (accessible at app.codewhiz.co) is our client portal and project
+              management platform. By creating an account and using this platform, you agree to:
+            </p>
+
+            <h3 className="text-xl font-semibold text-white mb-3 mt-4">3.1 Account Registration and Security</h3>
+            <ul className="list-disc list-inside space-y-2 ml-4">
+              <li>Provide accurate, current, and complete information during registration</li>
+              <li>Maintain the security of your account credentials</li>
+              <li>Notify us immediately of any unauthorized access or security breach</li>
+              <li>Accept responsibility for all activities that occur under your account</li>
+              <li>Not share your account credentials with others</li>
+            </ul>
+
+            <h3 className="text-xl font-semibold text-white mb-3 mt-4">3.2 Acceptable Use</h3>
+            <p className="mb-3">When using the Command Center, you must not:</p>
+            <ul className="list-disc list-inside space-y-2 ml-4">
+              <li>Upload or transmit malicious code, viruses, or harmful content</li>
+              <li>Attempt to gain unauthorized access to the platform or other user accounts</li>
+              <li>Use the platform for any illegal or unauthorized purpose</li>
+              <li>Interfere with or disrupt the platform's operation</li>
+              <li>Scrape, data mine, or extract data without authorization</li>
+              <li>Reverse engineer or attempt to access the platform's source code</li>
+            </ul>
+
+            <h3 className="text-xl font-semibold text-white mb-3 mt-4">3.3 Platform Availability</h3>
+            <p>
+              While we strive to maintain 99.9% uptime, we do not guarantee uninterrupted access to the
+              Command Center. We may perform scheduled maintenance, updates, or experience unplanned downtime.
+              We will provide advance notice of scheduled maintenance when possible.
+            </p>
+
+            <h3 className="text-xl font-semibold text-white mb-3 mt-4">3.4 Account Termination</h3>
+            <p className="mb-3">We reserve the right to suspend or terminate your account if:</p>
+            <ul className="list-disc list-inside space-y-2 ml-4">
+              <li>You violate these Terms and Conditions</li>
+              <li>You engage in fraudulent or illegal activities</li>
+              <li>Your account has been inactive for an extended period</li>
+              <li>We discontinue the platform or specific features</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-white mb-4">4. Client Responsibilities</h2>
             <p className="mb-4">Clients agree to:</p>
             <ul className="list-disc list-inside space-y-2 ml-4">
               <li>Provide accurate and complete information necessary for project completion</li>
@@ -58,7 +103,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-4">4. Payment Terms</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">5. Payment Terms</h2>
             <p className="mb-4">
               Payment terms will be outlined in individual project agreements. Generally:
             </p>
@@ -72,7 +117,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-4">5. Intellectual Property Rights</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">6. Intellectual Property Rights</h2>
             <p className="mb-4">
               Upon full payment, clients will receive ownership of the final deliverables as specified
               in the project agreement. However:
@@ -86,7 +131,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-4">6. Confidentiality</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">7. Confidentiality</h2>
             <p>
               We respect the confidentiality of client information. Any confidential information shared
               during the course of a project will be kept secure and will not be disclosed to third parties
@@ -95,7 +140,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-4">7. Project Timeline and Delays</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">8. Project Timeline and Delays</h2>
             <p className="mb-4">
               While we strive to meet all agreed-upon deadlines:
             </p>
@@ -108,7 +153,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-4">8. Revisions and Changes</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">9. Revisions and Changes</h2>
             <p className="mb-4">
               Project agreements will specify the number of revision rounds included. Additional revisions
               or scope changes may incur additional fees. Significant changes to project scope will require
@@ -117,7 +162,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-4">9. Warranties and Disclaimers</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">10. Warranties and Disclaimers</h2>
             <p className="mb-4">
               We warrant that services will be performed in a professional manner. However:
             </p>
@@ -130,7 +175,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-4">10. Limitation of Liability</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">11. Limitation of Liability</h2>
             <p>
               To the maximum extent permitted by law, Codewhiz LLC shall not be liable for any indirect,
               incidental, special, consequential, or punitive damages, or any loss of profits or revenues,
@@ -140,7 +185,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-4">11. Termination</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">12. Termination</h2>
             <p className="mb-4">
               Either party may terminate a project agreement:
             </p>
@@ -155,7 +200,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-4">12. Support and Maintenance</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">13. Support and Maintenance</h2>
             <p>
               Post-project support and maintenance services are available separately and will be outlined
               in a separate agreement. Bug fixes for issues present at delivery may be covered under warranty
@@ -164,7 +209,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-4">13. Governing Law</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">14. Governing Law</h2>
             <p>
               These Terms and Conditions shall be governed by and construed in accordance with the laws
               of the State of Florida, United States, without regard to its conflict of law provisions.
@@ -172,7 +217,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-4">14. Dispute Resolution</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">15. Dispute Resolution</h2>
             <p>
               Any disputes arising from these terms or our services shall first be attempted to be resolved
               through good faith negotiation. If negotiation fails, disputes shall be resolved through binding
@@ -181,7 +226,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-4">15. Changes to Terms</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">16. Changes to Terms</h2>
             <p>
               We reserve the right to modify these Terms and Conditions at any time. Changes will be effective
               immediately upon posting to our website. Continued use of our services after changes constitutes
@@ -190,7 +235,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-white mb-4">16. Contact Information</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">17. Contact Information</h2>
             <p className="mb-4">
               For questions about these Terms and Conditions, please contact us:
             </p>

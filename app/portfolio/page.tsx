@@ -53,10 +53,10 @@ const projects: Project[] = [
   {
     name: "LD Oil Service LLC",
     category: "Oil & Energy",
-    description: "Professional oil service company website serving Odessa, Texas. Features comprehensive service information, contact forms, and business profile for the oil and energy industry.",
+    description: "Professional oil service company serving Odessa, Texas with custom operating software and mobile app. Features real-time operations management, field reporting, and comprehensive business solutions for the oil and energy industry.",
     image: "/ldoil.jpg",
-    tags: ["React", "Contact Forms", "Business Profile", "Responsive Design"],
-    metrics: ["Odessa, TX", "Oil services", "Industry expertise"]
+    tags: ["Custom Software", "Mobile App", "Operations Management", "Field Reporting"],
+    metrics: ["Odessa, TX", "24/7 operations", "Custom solutions"]
   },
   {
     name: "HealthWave",

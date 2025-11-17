@@ -11,6 +11,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'CodeWhiz - Full-Stack Development Agency',
   description: 'Your partner for web development, software innovation, and digital excellence. We specialize in creating cutting-edge digital solutions for modern businesses.',
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({

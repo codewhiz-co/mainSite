@@ -74,8 +74,11 @@ export default function Navbar() {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Button className="bg-green-500 hover:bg-green-600 text-black font-semibold transition-all duration-300 hover:scale-105" asChild>
-            <Link href="https://app.codewhiz.co">Login</Link>
+          <Button
+            className="bg-green-500 hover:bg-green-600 text-black font-semibold transition-all duration-300 hover:scale-105"
+            onClick={() => window.open('https://app.codewhiz.co', '_blank')}
+          >
+            Login
           </Button>
         </div>
       </nav>
@@ -127,10 +130,14 @@ export default function Navbar() {
                 ))}
               </div>
               <div className="py-6">
-                <Button className="w-full bg-green-500 hover:bg-green-600 text-black" asChild>
-                  <Link href="https://app.codewhiz.co" onClick={() => setMobileMenuOpen(false)}>
-                    Login
-                  </Link>
+                <Button
+                  className="w-full bg-green-500 hover:bg-green-600 text-black"
+                  onClick={() => {
+                    window.open('https://app.codewhiz.co', '_blank');
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  Login
                 </Button>
               </div>
             </div>

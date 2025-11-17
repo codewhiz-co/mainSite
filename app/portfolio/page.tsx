@@ -51,6 +51,14 @@ const projects: Project[] = [
     metrics: ["5-star service", "Online booking", "Live chat support"]
   },
   {
+    name: "LD Oil Service LLC",
+    category: "Oil & Energy",
+    description: "Professional oil service company website serving Odessa, Texas. Features comprehensive service information, contact forms, and business profile for the oil and energy industry.",
+    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2340&auto=format&fit=crop",
+    tags: ["React", "Contact Forms", "Business Profile", "Responsive Design"],
+    metrics: ["Odessa, TX", "Oil services", "Industry expertise"]
+  },
+  {
     name: "HealthWave",
     category: "Healthcare",
     description: "Mobile app for booking medical consultations, managing health records, and tracking medications.",
@@ -132,7 +140,7 @@ const projects: Project[] = [
   }
 ];
 
-const categories = ["All", "Restaurant", "E-commerce", "Beauty & Wellness", "Healthcare", "Education", "IoT", "Finance", "Sports", "Entertainment", "Sustainability", "Travel"];
+const categories = ["All", "Restaurant", "E-commerce", "Beauty & Wellness", "Oil & Energy", "Healthcare", "Education", "IoT", "Finance", "Sports", "Entertainment", "Sustainability", "Travel"];
 
 export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState("All");

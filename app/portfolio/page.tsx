@@ -7,7 +7,17 @@ import { Card } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-const projects = [
+interface Project {
+  name: string;
+  category: string;
+  description: string;
+  image: string;
+  tags: string[];
+  metrics: string[];
+  link?: string;
+}
+
+const projects: Project[] = [
   {
     name: "Bistro Bliss",
     category: "Restaurant",
@@ -15,6 +25,15 @@ const projects = [
     image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2340&auto=format&fit=crop",
     tags: ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
     metrics: ["45% efficiency increase", "2.5x revenue growth", "98% customer satisfaction"]
+  },
+  {
+    name: "The Salty Sombrero",
+    category: "Restaurant",
+    description: "Beachfront Mexican restaurant website featuring online ordering, event bookings, and extensive tequila menu. Fort Lauderdale's Tequila Playground offers ocean-view dining with all-day happy hour.",
+    image: "/Artboard 1-50.jpg",
+    tags: ["React", "Online Ordering", "Event Management", "Responsive Design"],
+    metrics: ["301 tequila menu", "All-day happy hour", "Beachfront location"],
+    link: "https://thesaltysombreroflb.com/"
   },
   {
     name: "TrendyMart",
@@ -161,14 +180,25 @@ export default function Portfolio() {
                 className="bg-black/40 border-green-500/20 overflow-hidden group"
               >
                 <div className="relative h-64">
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
+                  {project.link ? (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="block h-full">
+                      <Image
+                        src={project.image}
+                        alt={project.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </a>
+                  ) : (
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
+                  <div className="absolute bottom-4 left-4 pointer-events-none">
                     <span className="text-green-500 text-sm font-medium">
                       {project.category}
                     </span>
@@ -179,7 +209,7 @@ export default function Portfolio() {
                 </div>
                 <div className="p-6">
                   <p className="text-gray-300 mb-6">{project.description}</p>
-                  
+
                   {/* Metrics */}
                   <div className="grid grid-cols-3 gap-4 mb-6">
                     {project.metrics.map((metric, index) => (
@@ -193,7 +223,7 @@ export default function Portfolio() {
                   </div>
 
                   {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
@@ -203,6 +233,19 @@ export default function Portfolio() {
                       </span>
                     ))}
                   </div>
+
+                  {/* Visit Website Link */}
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-green-500 hover:text-green-400 transition-colors group/link"
+                    >
+                      Visit Website
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+                    </a>
+                  )}
                 </div>
               </Card>
             ))}

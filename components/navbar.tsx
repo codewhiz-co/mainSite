@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Terminal, Menu, X } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -47,9 +48,15 @@ export default function Navbar() {
     )}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5 flex items-center space-x-2 group">
-            <Terminal className="h-8 w-8 text-green-500 transition-transform duration-300 group-hover:scale-110" />
-            <span className="font-bold text-xl text-white">CodeWhiz</span>
+          <Link href="/" className="-m-1.5 p-1.5 flex items-center group">
+            <Image
+              src="/codewhiz.png"
+              alt="CodeWhiz Logo"
+              width={150}
+              height={40}
+              className="transition-transform duration-300 group-hover:scale-105"
+              priority
+            />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -99,13 +106,17 @@ export default function Navbar() {
         {/* Menu content */}
         <div className="fixed inset-y-0 right-0 z-[101] w-full max-w-sm bg-black/95 backdrop-blur-sm px-6 py-6 overflow-y-auto">
           <div className="flex items-center justify-between">
-            <Link 
-              href="/" 
-              className="-m-1.5 p-1.5 flex items-center space-x-2"
+            <Link
+              href="/"
+              className="-m-1.5 p-1.5 flex items-center"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <Terminal className="h-8 w-8 text-green-500" />
-              <span className="font-bold text-xl text-white">CodeWhiz</span>
+              <Image
+                src="/codewhiz.png"
+                alt="CodeWhiz Logo"
+                width={150}
+                height={40}
+              />
             </Link>
             <Button
               variant="ghost"

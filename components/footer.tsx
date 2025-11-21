@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Terminal, Mail, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navigation = {
@@ -29,9 +30,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2">
-              <Terminal className="h-8 w-8 text-green-500" />
-              <span className="font-bold text-xl">CodeWhiz</span>
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/codewhiz.png"
+                alt="CodeWhiz Logo"
+                width={150}
+                height={40}
+              />
             </Link>
             <p className="mt-4 text-sm text-gray-400 max-w-xs">
               Empowering businesses with cutting-edge digital solutions and innovative technology.

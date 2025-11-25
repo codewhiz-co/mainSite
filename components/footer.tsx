@@ -32,7 +32,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center">
               <Image
-                src="/codewhiz.png"
+                src="/codewhiz2.png"
                 alt="CodeWhiz Logo"
                 width={150}
                 height={40}

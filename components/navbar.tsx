@@ -50,7 +50,7 @@ export default function Navbar() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5 flex items-center group">
             <Image
-              src="/codewhiz.png"
+              src="/codewhiz2.png"
               alt="CodeWhiz Logo"
               width={150}
               height={40}
@@ -112,7 +112,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <Image
-                src="/codewhiz.png"
+                src="/codewhiz2.png"
                 alt="CodeWhiz Logo"
                 width={150}
                 height={40}

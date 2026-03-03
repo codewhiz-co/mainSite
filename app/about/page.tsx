@@ -39,14 +39,14 @@ const team = [
     achievements: ["Cloud Architecture Expert", "20+ Enterprise Solutions", "Tech Conference Speaker"]
   },
   {
-    name: "Michael Rodriguez",
+    name: "Emmanuel Osawaru",
     role: "Lead Developer",
     bio: "Full-stack expert specializing in modern web technologies and performance optimization.",
     icon: Code2,
     achievements: ["Open Source Contributor", "Performance Optimization Specialist", "10+ Years Experience"]
   },
   {
-    name: "Emily Park",
+    name: "Ashia Lie",
     role: "Design Director",
     bio: "Creating intuitive and beautiful user experiences that delight and engage.",
     icon: Palette,

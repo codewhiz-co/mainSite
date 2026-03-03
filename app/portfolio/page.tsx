@@ -20,7 +20,7 @@ interface Project {
 const projects: Project[] = [
   {
     name: "Rock Bar",
-    category: "Entertainment",
+    category: "Restaurant",
     description: "Fort Lauderdale Beach's premier beachfront nightclub, restaurant, and hookah lounge. Features live DJs, special events, day club, craft cocktails, and exceptional food. Dynamic website with table booking, online ordering, and event management for Spring Break and private events.",
     image: "/rockBar.png",
     tags: ["React", "Event Management", "Table Booking", "Online Ordering"],

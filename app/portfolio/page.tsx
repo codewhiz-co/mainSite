@@ -19,6 +19,15 @@ interface Project {
 
 const projects: Project[] = [
   {
+    name: "Cafe Ibiza",
+    category: "Restaurant",
+    description: "Authentic Mediterranean restaurant and hookah lounge on Las Olas Beach. Features oceanfront dining, live DJs, fresh seafood, homemade pasta, and all-day menu. Integrated with OpenTable reservations and online ordering system.",
+    image: "/cafeIbiza.png",
+    tags: ["React", "OpenTable Integration", "Online Ordering", "Responsive Design"],
+    metrics: ["Mediterranean cuisine", "Live entertainment", "Oceanfront patio"],
+    link: "https://cafeibizaflb.com"
+  },
+  {
     name: "Blondies Sports Bar",
     category: "Restaurant",
     description: "Fort Lauderdale's premier beachfront sports bar featuring 40+ HD TVs for live NFL, NBA, MLB, and UFC. Complete website with online ordering, menu showcase, and event management. Located oceanfront on Fort Lauderdale Beach Boulevard.",

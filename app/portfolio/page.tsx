@@ -19,6 +19,14 @@ interface Project {
 
 const projects: Project[] = [
   {
+    name: "Blondies Sports Bar",
+    category: "Restaurant",
+    description: "Fort Lauderdale's premier sports bar featuring cocktails, food, games, and sports. Full-featured website with menu systems, event bookings, and entertainment scheduling for the ultimate sports viewing experience.",
+    image: "/blondies.png",
+    tags: ["React", "Responsive Design", "Event Management", "Menu System"],
+    metrics: ["Sports bar", "Fort Lauderdale", "Full entertainment"]
+  },
+  {
     name: "Bistro Bliss",
     category: "Restaurant",
     description: "All-in-one restaurant management platform including POS, online ordering, and table reservation systems. Increased operational efficiency by 45% for client.",

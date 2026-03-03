@@ -19,6 +19,15 @@ interface Project {
 
 const projects: Project[] = [
   {
+    name: "Rock Bar",
+    category: "Entertainment",
+    description: "Fort Lauderdale Beach's premier beachfront nightclub, restaurant, and hookah lounge. Features live DJs, special events, day club, craft cocktails, and exceptional food. Dynamic website with table booking, online ordering, and event management for Spring Break and private events.",
+    image: "/rockBar.png",
+    tags: ["React", "Event Management", "Table Booking", "Online Ordering"],
+    metrics: ["Live entertainment", "Day & night club", "Beachfront venue"],
+    link: "https://rockbarflb.com"
+  },
+  {
     name: "Cafe Ibiza",
     category: "Restaurant",
     description: "Authentic Mediterranean restaurant and hookah lounge on Las Olas Beach. Features oceanfront dining, live DJs, fresh seafood, homemade pasta, and all-day menu. Integrated with OpenTable reservations and online ordering system.",

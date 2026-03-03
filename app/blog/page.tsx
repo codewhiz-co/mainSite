@@ -27,13 +27,19 @@ export default function Blog() {
     });
   }, [selectedCategory, searchQuery]);
 
-  const featuredPosts = useMemo(() => {
-    return filteredPosts.filter(post => post.featured);
+  const sortedPosts = useMemo(() => {
+    return [...filteredPosts].sort((a, b) =>
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+    );
   }, [filteredPosts]);
 
+  const featuredPosts = useMemo(() => {
+    return sortedPosts.filter(post => post.featured);
+  }, [sortedPosts]);
+
   const recentPosts = useMemo(() => {
-    return filteredPosts.filter(post => !post.featured);
-  }, [filteredPosts]);
+    return sortedPosts.filter(post => !post.featured);
+  }, [sortedPosts]);
 
   return (
     <div className="min-h-screen bg-background">

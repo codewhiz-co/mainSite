@@ -21,10 +21,11 @@ const projects: Project[] = [
   {
     name: "Blondies Sports Bar",
     category: "Restaurant",
-    description: "Fort Lauderdale's premier sports bar featuring cocktails, food, games, and sports. Full-featured website with menu systems, event bookings, and entertainment scheduling for the ultimate sports viewing experience.",
+    description: "Fort Lauderdale's premier beachfront sports bar featuring 40+ HD TVs for live NFL, NBA, MLB, and UFC. Complete website with online ordering, menu showcase, and event management. Located oceanfront on Fort Lauderdale Beach Boulevard.",
     image: "/blondies.png",
-    tags: ["React", "Responsive Design", "Event Management", "Menu System"],
-    metrics: ["Sports bar", "Fort Lauderdale", "Full entertainment"]
+    tags: ["React", "Online Ordering", "Responsive Design", "Toast POS Integration"],
+    metrics: ["40+ HD TVs", "Beachfront location", "Live sports viewing"],
+    link: "https://blondiesflb.com"
   },
   {
     name: "Bistro Bliss",

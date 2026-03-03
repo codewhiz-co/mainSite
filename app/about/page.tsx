@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, CheckCircle2, Code2, Briefcase, Brain, Palette, Rocket, Users, Globe, Trophy } from "lucide-react";
+import { ArrowRight, CircleCheck as CheckCircle2, Code as Code2, Briefcase, Brain, Palette, Rocket, Users, Globe, Trophy } from "lucide-react";
 
 const values = [
   {

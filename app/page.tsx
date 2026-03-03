@@ -11,6 +11,7 @@ import ScrollIndicator from "@/components/scroll-indicator";
 import StatsCounter from "@/components/stats-counter";
 import FloatingElements from "@/components/floating-elements";
 import RotatingText from "@/components/rotating-text";
+import FeaturedWork from "@/components/featured-work";
 
 const stats = [
   { id: 1, name: "Happy Clients", value: "500+" },
@@ -70,6 +71,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <FeaturedWork />
 
       {/* Services Section */}
       <section className="py-24 sm:py-32 bg-black/40">

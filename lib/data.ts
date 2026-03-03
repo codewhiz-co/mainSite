@@ -102,6 +102,175 @@ export const services = [
   }
 ];
 
+export interface Project {
+  name: string;
+  category: string;
+  description: string;
+  image: string;
+  tags: string[];
+  metrics: string[];
+  link?: string;
+}
+
+export const projects: Project[] = [
+  {
+    name: "Rock Bar",
+    category: "Restaurant",
+    description: "Fort Lauderdale Beach's premier beachfront nightclub, restaurant, and hookah lounge. Features live DJs, special events, day club, craft cocktails, and exceptional food. Dynamic website with table booking, online ordering, and event management for Spring Break and private events.",
+    image: "/rockBar.png",
+    tags: ["React", "Event Management", "Table Booking", "Online Ordering"],
+    metrics: ["Live entertainment", "Day & night club", "Beachfront venue"],
+    link: "https://rockbarflb.com"
+  },
+  {
+    name: "Cafe Ibiza",
+    category: "Restaurant",
+    description: "Authentic Mediterranean restaurant and hookah lounge on Las Olas Beach. Features oceanfront dining, live DJs, fresh seafood, homemade pasta, and all-day menu. Integrated with OpenTable reservations and online ordering system.",
+    image: "/cafeIbiza.png",
+    tags: ["React", "OpenTable Integration", "Online Ordering", "Responsive Design"],
+    metrics: ["Mediterranean cuisine", "Live entertainment", "Oceanfront patio"],
+    link: "https://cafeibizaflb.com"
+  },
+  {
+    name: "Blondies Sports Bar",
+    category: "Restaurant",
+    description: "Fort Lauderdale's premier beachfront sports bar featuring 40+ HD TVs for live NFL, NBA, MLB, and UFC. Complete website with online ordering, menu showcase, and event management. Located oceanfront on Fort Lauderdale Beach Boulevard.",
+    image: "/blondies.png",
+    tags: ["React", "Online Ordering", "Responsive Design", "Toast POS Integration"],
+    metrics: ["40+ HD TVs", "Beachfront location", "Live sports viewing"],
+    link: "https://blondiesflb.com"
+  },
+  {
+    name: "Bistro Bliss",
+    category: "Restaurant",
+    description: "All-in-one restaurant management platform including POS, online ordering, and table reservation systems. Increased operational efficiency by 45% for client.",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2340&auto=format&fit=crop",
+    tags: ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
+    metrics: ["45% efficiency increase", "2.5x revenue growth", "98% customer satisfaction"]
+  },
+  {
+    name: "The Salty Sombrero",
+    category: "Restaurant",
+    description: "Beachfront Mexican restaurant website featuring online ordering, event bookings, and extensive tequila menu. Fort Lauderdale's Tequila Playground offers ocean-view dining with all-day happy hour.",
+    image: "/Artboard 1-50.jpg",
+    tags: ["React", "Online Ordering", "Event Management", "Responsive Design"],
+    metrics: ["301 tequila menu", "All-day happy hour", "Beachfront location"]
+  },
+  {
+    name: "Cheese and Meat Club",
+    category: "E-commerce",
+    description: "Heavily customized Shopify store with custom modules developed by CodeWhiz. Zero third-party applications, fully bespoke functionality including advanced inventory management, custom checkout flows, and subscription management.",
+    image: "https://images.unsplash.com/photo-1452195100486-9cc805987862?q=80&w=2340&auto=format&fit=crop",
+    tags: ["Custom Shopify", "Liquid", "JavaScript", "No Third-Party Apps"],
+    metrics: ["100% custom modules", "Zero dependencies", "Full customization"]
+  },
+  {
+    name: "Attractive Nails & Spa",
+    category: "Beauty & Wellness",
+    description: "Luxury nail spa website with Square booking integration and custom chat system. Features online appointment scheduling, service gallery, and real-time customer support for a premium spa experience.",
+    image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=2340&auto=format&fit=crop",
+    tags: ["React", "Square API", "Custom Chat", "Booking System"],
+    metrics: ["5-star service", "Online booking", "Live chat support"]
+  },
+  {
+    name: "LD Oil Service LLC",
+    category: "Oil & Energy",
+    description: "Professional oil service company serving Odessa, Texas with custom operating software and mobile app. Features real-time operations management, field reporting, and comprehensive business solutions for the oil and energy industry.",
+    image: "/ldoil.jpg",
+    tags: ["Custom Software", "Mobile App", "Operations Management", "Field Reporting"],
+    metrics: ["Odessa, TX", "24/7 operations", "Custom solutions"]
+  },
+  {
+    name: "HealthWave",
+    category: "Healthcare",
+    description: "Mobile app for booking medical consultations, managing health records, and tracking medications.",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2340&auto=format&fit=crop",
+    tags: ["React Native", "Firebase", "Node.js"],
+    metrics: ["50k+ active users", "4.8 App Store rating", "98% booking rate"]
+  },
+  {
+    name: "EduTech Pro",
+    category: "Education",
+    description: "Comprehensive learning management system with live classes, assessments, and progress tracking.",
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=2340&auto=format&fit=crop",
+    tags: ["Vue.js", "Python", "Django", "WebRTC"],
+    metrics: ["100k+ students", "95% completion rate", "4.9/5 rating"]
+  },
+  {
+    name: "SmartHome Hub",
+    category: "IoT",
+    description: "IoT platform for smart home device management with real-time monitoring and automation.",
+    image: "https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=2340&auto=format&fit=crop",
+    tags: ["React", "Node.js", "MQTT", "WebSocket"],
+    metrics: ["1M+ devices connected", "40% energy savings", "99.9% uptime"]
+  },
+  {
+    name: "FinTrack Pro",
+    category: "Finance",
+    description: "Financial management platform with AI-powered insights and automated reporting.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+    tags: ["Angular", "Python", "TensorFlow", "PostgreSQL"],
+    metrics: ["$2B+ processed", "30% cost reduction", "5x faster reporting"]
+  },
+  {
+    name: "SportSync",
+    category: "Sports",
+    description: "Real-time sports analytics and team management platform for professional athletes.",
+    image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=2340&auto=format&fit=crop",
+    tags: ["React", "Python", "TensorFlow", "WebSocket"],
+    metrics: ["200+ pro teams", "45% performance boost", "Real-time analytics"]
+  },
+  {
+    name: "ArtGallery VR",
+    category: "Entertainment",
+    description: "Virtual reality art gallery platform for artists and collectors worldwide.",
+    image: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?q=80&w=2340&auto=format&fit=crop",
+    tags: ["Unity", "WebXR", "Three.js", "WebGL"],
+    metrics: ["100k+ artworks", "Virtual exhibitions", "Global reach"]
+  },
+  {
+    name: "GreenEnergy",
+    category: "Sustainability",
+    description: "Smart energy management system for sustainable buildings and communities.",
+    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2340&auto=format&fit=crop",
+    tags: ["IoT", "AI", "Data Analytics", "Cloud"],
+    metrics: ["50% energy savings", "Carbon neutral", "Smart grid ready"]
+  },
+  {
+    name: "TravelBuddy",
+    category: "Travel",
+    description: "AI-powered travel planning and booking platform with personalized recommendations.",
+    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=2340&auto=format&fit=crop",
+    tags: ["React", "AI", "Maps API", "Big Data"],
+    metrics: ["1M+ bookings", "98% satisfaction", "Global coverage"]
+  },
+  {
+    name: "MusicStudio Pro",
+    category: "Entertainment",
+    description: "Cloud-based music production and collaboration platform for artists.",
+    image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2340&auto=format&fit=crop",
+    tags: ["Web Audio API", "React", "Cloud", "WebRTC"],
+    metrics: ["500k+ tracks", "Real-time collab", "Studio quality"]
+  },
+  {
+    name: "FitnessFusion",
+    category: "Healthcare",
+    description: "Personalized fitness and nutrition tracking platform with AI coaching.",
+    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2340&auto=format&fit=crop",
+    tags: ["React Native", "AI", "Health API", "Cloud"],
+    metrics: ["2M+ users", "AI coaching", "Health insights"]
+  },
+  {
+    name: "Filippone Electric",
+    category: "Electrical Services",
+    description: "Philadelphia's premier family-owned electrical contractor serving residential, commercial, and industrial clients for over 80 years. Full-service website with 24/7 emergency service booking, free quote requests, and a custom-built highly SEO-optimized blog driving organic traffic and local search visibility.",
+    image: "/filipone.png",
+    tags: ["React", "Custom SEO Blog", "Quote System", "Responsive Design"],
+    metrics: ["80+ years in business", "24/7 emergency service", "Top local SEO"],
+    link: "https://filipponelectric.com"
+  }
+];
+
 export const blogPosts = [
   {
     id: 1,

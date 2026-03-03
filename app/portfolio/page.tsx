@@ -164,10 +164,19 @@ const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2340&auto=format&fit=crop",
     tags: ["React Native", "AI", "Health API", "Cloud"],
     metrics: ["2M+ users", "AI coaching", "Health insights"]
+  },
+  {
+    name: "Filippone Electric",
+    category: "Electrical Services",
+    description: "Philadelphia's premier family-owned electrical contractor serving residential, commercial, and industrial clients for over 80 years. Full-service website with 24/7 emergency service booking, free quote requests, and a custom-built highly SEO-optimized blog driving organic traffic and local search visibility.",
+    image: "/filipone.png",
+    tags: ["React", "Custom SEO Blog", "Quote System", "Responsive Design"],
+    metrics: ["80+ years in business", "24/7 emergency service", "Top local SEO"],
+    link: "https://filipponelectric.com"
   }
 ];
 
-const categories = ["All", "Restaurant", "E-commerce", "Beauty & Wellness", "Oil & Energy", "Healthcare", "Education", "IoT", "Finance", "Sports", "Entertainment", "Sustainability", "Travel"];
+const categories = ["All", "Restaurant", "E-commerce", "Beauty & Wellness", "Oil & Energy", "Electrical Services", "Healthcare", "Education", "IoT", "Finance", "Sports", "Entertainment", "Sustainability", "Travel"];
 
 export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState("All");

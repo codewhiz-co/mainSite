@@ -42,68 +42,68 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className={cn(
-      "fixed w-full z-50 transition-all duration-300",
-      scrolled ? "bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/80 border-b border-green-500/20" : "bg-transparent"
-    )}>
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5 flex items-center group">
-            <Image
-              src="/codewhiz2.png"
-              alt="CodeWhiz Logo"
-              width={150}
-              height={40}
-              className="transition-transform duration-300 group-hover:scale-105"
-              priority
-            />
-          </Link>
-        </div>
-        <div className="flex lg:hidden">
-          <Button
-            variant="ghost"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
-            onClick={() => setMobileMenuOpen(true)}
-          >
-            <Menu className="h-6 w-6" aria-hidden="true" />
-          </Button>
-        </div>
-        <div className="hidden lg:flex lg:gap-x-8">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-semibold leading-6 text-white/90 hover:text-green-400 transition-colors relative group"
-            >
-              {item.name}
-              <span className="absolute inset-x-0 -bottom-2 h-0.5 bg-green-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+    <>
+      <header className={cn(
+        "fixed w-full z-50 transition-all duration-300",
+        scrolled ? "bg-black/95 backdrop-blur supports-[backdrop-filter]:bg-black/80 border-b border-green-500/20" : "bg-transparent"
+      )}>
+        <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+          <div className="flex lg:flex-1">
+            <Link href="/" className="-m-1.5 p-1.5 flex items-center group">
+              <Image
+                src="/codewhiz2.png"
+                alt="CodeWhiz Logo"
+                width={150}
+                height={40}
+                className="transition-transform duration-300 group-hover:scale-105"
+                priority
+              />
             </Link>
-          ))}
-        </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Button
-            className="bg-green-500 hover:bg-green-600 text-black font-semibold transition-all duration-300 hover:scale-105"
-            onClick={() => window.open('https://app.codewhiz.co', '_blank')}
-          >
-            Login
-          </Button>
-        </div>
-      </nav>
+          </div>
+          <div className="flex lg:hidden">
+            <Button
+              variant="ghost"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+              onClick={() => setMobileMenuOpen(true)}
+            >
+              <Menu className="h-6 w-6" aria-hidden="true" />
+            </Button>
+          </div>
+          <div className="hidden lg:flex lg:gap-x-8">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm font-semibold leading-6 text-white/90 hover:text-green-400 transition-colors relative group"
+              >
+                {item.name}
+                <span className="absolute inset-x-0 -bottom-2 h-0.5 bg-green-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+              </Link>
+            ))}
+          </div>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <Button
+              className="bg-green-500 hover:bg-green-600 text-black font-semibold transition-all duration-300 hover:scale-105"
+              onClick={() => window.open('https://app.codewhiz.co', '_blank')}
+            >
+              Login
+            </Button>
+          </div>
+        </nav>
+      </header>
 
-      {/* Mobile menu */}
+      {/* Mobile menu - rendered outside header to avoid clipping */}
       <div
         className={cn(
           "fixed inset-0 z-[100] lg:hidden",
           mobileMenuOpen ? "block" : "hidden"
         )}
       >
-        {/* Backdrop */}
-        <div 
+        <div
           className="fixed inset-0 bg-black/80 backdrop-blur-sm"
           onClick={() => setMobileMenuOpen(false)}
         />
 
-        {/* Menu content */}
         <div className="fixed inset-y-0 right-0 z-[101] w-full max-w-sm bg-black/95 backdrop-blur-sm px-6 py-6 overflow-y-auto">
           <div className="flex items-center justify-between">
             <Link
@@ -155,6 +155,6 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </header>
+    </>
   );
 }

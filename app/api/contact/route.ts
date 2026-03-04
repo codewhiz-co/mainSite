@@ -38,7 +38,7 @@ export async function POST(request: Request) {
     }
 
     const { error: sendError } = await resend.emails.send({
-      from: "CodeWhiz Contact Form <noreply@codewhiz.co>",
+      from: "CodeWhiz Contact Form <noreply@notifications.codewhiz.co>",
       to: [process.env.CONTACT_EMAIL],
       replyTo: email,
       subject: `New Contact Form Submission: ${subject}`,

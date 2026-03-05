@@ -38,19 +38,14 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, email, subject, message, turnstileToken } = body;
 
-    if (!turnstileToken) {
-      return NextResponse.json(
-        { success: false, error: "Verification is required" },
-        { status: 400 }
-      );
-    }
-
-    const isHuman = await verifyTurnstileToken(turnstileToken);
-    if (!isHuman) {
-      return NextResponse.json(
-        { success: false, error: "Verification failed. Please try again." },
-        { status: 403 }
-      );
+    if (turnstileToken && process.env.TURNSTILE_SECRET_KEY) {
+      const isHuman = await verifyTurnstileToken(turnstileToken);
+      if (!isHuman) {
+        return NextResponse.json(
+          { success: false, error: "Verification failed. Please try again." },
+          { status: 403 }
+        );
+      }
     }
 
     if (!name || !email || !subject || !message) {

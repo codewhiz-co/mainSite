@@ -25,25 +25,29 @@ export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
-  const [debugInfo, setDebugInfo] = useState<any>(null);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
-  const [turnstileReady, setTurnstileReady] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const turnstileRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
   const { toast } = useToast();
 
   useEffect(() => {
+    const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+    if (!siteKey) return;
+
     const renderWidget = () => {
       if (turnstileRef.current && window.turnstile && !widgetIdRef.current) {
-        widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
-          sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "",
-          theme: "dark",
-          callback: (token: string) => setTurnstileToken(token),
-          "expired-callback": () => setTurnstileToken(null),
-          "error-callback": () => setTurnstileToken(null),
-        });
-        setTurnstileReady(true);
+        try {
+          widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
+            sitekey: siteKey,
+            theme: "dark",
+            callback: (token: string) => setTurnstileToken(token),
+            "expired-callback": () => setTurnstileToken(null),
+            "error-callback": () => setTurnstileToken(null),
+          });
+        } catch {
+          // Turnstile failed to render, form will work without it
+        }
       }
     };
 
@@ -79,13 +83,6 @@ export default function ContactForm() {
     setIsLoading(true);
     setError(null);
     setSuccess(false);
-    setDebugInfo(null);
-
-    if (!turnstileToken) {
-      setError("Please complete the verification check.");
-      setIsLoading(false);
-      return;
-    }
 
     try {
       const formData = {
@@ -93,14 +90,12 @@ export default function ContactForm() {
         email: (e.currentTarget.elements.namedItem('email') as HTMLInputElement).value,
         subject: (e.currentTarget.elements.namedItem('subject') as HTMLInputElement).value,
         message: (e.currentTarget.elements.namedItem('message') as HTMLTextAreaElement).value,
-        turnstileToken,
+        turnstileToken: turnstileToken || undefined,
       };
 
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
@@ -121,14 +116,9 @@ export default function ContactForm() {
       } else {
         throw new Error(data.error || "Failed to send message");
       }
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : "Failed to send message";
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : "Failed to send message";
       setError(errorMessage);
-
-      if (error instanceof Error && 'debug' in (error as any)) {
-        setDebugInfo((error as any).debug);
-      }
-
       toast({
         variant: "destructive",
         title: "Error",
@@ -145,14 +135,7 @@ export default function ContactForm() {
         <Alert variant="destructive">
           <AlertCircle className="h-4 w-4" />
           <AlertTitle>Error</AlertTitle>
-          <AlertDescription>
-            {error}
-            {process.env.NODE_ENV === 'development' && debugInfo && (
-              <pre className="mt-2 text-xs bg-black/10 p-2 rounded">
-                {JSON.stringify(debugInfo, null, 2)}
-              </pre>
-            )}
-          </AlertDescription>
+          <AlertDescription>{error}</AlertDescription>
         </Alert>
       )}
 
@@ -161,7 +144,7 @@ export default function ContactForm() {
           <CheckCircle className="h-4 w-4" />
           <AlertTitle>Thank you for your message!</AlertTitle>
           <AlertDescription className="text-green-400">
-            We have received your inquiry and will review it shortly. Our team typically responds within 24-48 business hours. We handle all messages in the order they are received.
+            We have received your inquiry and will review it shortly. Our team typically responds within 24-48 business hours.
           </AlertDescription>
         </Alert>
       )}
@@ -220,7 +203,7 @@ export default function ContactForm() {
       <div ref={turnstileRef} className="flex justify-center" />
       <Button
         type="submit"
-        disabled={isLoading || !turnstileToken}
+        disabled={isLoading}
         className="w-full bg-green-500 hover:bg-green-600 text-black font-semibold h-12 text-lg"
       >
         {isLoading ? (

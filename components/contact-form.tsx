@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -29,31 +29,44 @@ export default function ContactForm() {
   const widgetIdRef = useRef<string | null>(null);
   const { toast } = useToast();
 
-  const renderTurnstile = useCallback(() => {
-    if (turnstileRef.current && window.turnstile && !widgetIdRef.current) {
-      widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
-        sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
-        theme: "dark",
-        callback: (token: string) => setTurnstileToken(token),
-        "expired-callback": () => setTurnstileToken(null),
-        "error-callback": () => setTurnstileToken(null),
-      });
-    }
-  }, []);
-
   useEffect(() => {
-    if (window.turnstile) {
-      renderTurnstile();
-    } else {
-      const interval = setInterval(() => {
-        if (window.turnstile) {
-          renderTurnstile();
+    let interval: ReturnType<typeof setInterval> | null = null;
+
+    const tryRender = () => {
+      if (
+        !turnstileRef.current ||
+        !window.turnstile ||
+        typeof window.turnstile.render !== "function" ||
+        widgetIdRef.current
+      ) {
+        return false;
+      }
+      try {
+        widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
+          sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "",
+          theme: "dark",
+          callback: (token: string) => setTurnstileToken(token),
+          "expired-callback": () => setTurnstileToken(null),
+          "error-callback": () => setTurnstileToken(null),
+        });
+        return true;
+      } catch {
+        return false;
+      }
+    };
+
+    if (!tryRender()) {
+      interval = setInterval(() => {
+        if (tryRender() && interval) {
           clearInterval(interval);
         }
       }, 500);
-      return () => clearInterval(interval);
     }
-  }, [renderTurnstile]);
+
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

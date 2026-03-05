@@ -15,8 +15,11 @@ declare global {
       reset: (widgetId: string) => void;
       remove: (widgetId: string) => void;
     };
+    onTurnstileLoad?: () => void;
   }
 }
+
+const TURNSTILE_SCRIPT_ID = "cf-turnstile-script";
 
 export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -24,24 +27,15 @@ export default function ContactForm() {
   const [success, setSuccess] = useState(false);
   const [debugInfo, setDebugInfo] = useState<any>(null);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [turnstileReady, setTurnstileReady] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const turnstileRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
   const { toast } = useToast();
 
   useEffect(() => {
-    let interval: ReturnType<typeof setInterval> | null = null;
-
-    const tryRender = () => {
-      if (
-        !turnstileRef.current ||
-        !window.turnstile ||
-        typeof window.turnstile.render !== "function" ||
-        widgetIdRef.current
-      ) {
-        return false;
-      }
-      try {
+    const renderWidget = () => {
+      if (turnstileRef.current && window.turnstile && !widgetIdRef.current) {
         widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
           sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "",
           theme: "dark",
@@ -49,22 +43,34 @@ export default function ContactForm() {
           "expired-callback": () => setTurnstileToken(null),
           "error-callback": () => setTurnstileToken(null),
         });
-        return true;
-      } catch {
-        return false;
+        setTurnstileReady(true);
       }
     };
 
-    if (!tryRender()) {
-      interval = setInterval(() => {
-        if (tryRender() && interval) {
+    if (window.turnstile) {
+      renderWidget();
+      return;
+    }
+
+    if (!document.getElementById(TURNSTILE_SCRIPT_ID)) {
+      window.onTurnstileLoad = renderWidget;
+      const script = document.createElement("script");
+      script.id = TURNSTILE_SCRIPT_ID;
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad";
+      script.async = true;
+      document.head.appendChild(script);
+    } else {
+      const interval = setInterval(() => {
+        if (window.turnstile) {
           clearInterval(interval);
+          renderWidget();
         }
-      }, 500);
+      }, 200);
+      return () => clearInterval(interval);
     }
 
     return () => {
-      if (interval) clearInterval(interval);
+      window.onTurnstileLoad = undefined;
     };
   }, []);
 
@@ -89,8 +95,6 @@ export default function ContactForm() {
         message: (e.currentTarget.elements.namedItem('message') as HTMLTextAreaElement).value,
         turnstileToken,
       };
-
-      console.log('Submitting form data:', { ...formData, messageLength: formData.message.length });
 
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -118,11 +122,9 @@ export default function ContactForm() {
         throw new Error(data.error || "Failed to send message");
       }
     } catch (error) {
-      console.error('Contact form error:', error);
       const errorMessage = error instanceof Error ? error.message : "Failed to send message";
       setError(errorMessage);
-      
-      // If the error response contains debug info, store it
+
       if (error instanceof Error && 'debug' in (error as any)) {
         setDebugInfo((error as any).debug);
       }
@@ -163,7 +165,7 @@ export default function ContactForm() {
           </AlertDescription>
         </Alert>
       )}
-      
+
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-300">

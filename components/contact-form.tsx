@@ -1,20 +1,59 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { AlertCircle, CheckCircle, Loader2 } from "lucide-react";
+import { CircleAlert as AlertCircle, CircleCheck as CheckCircle, Loader as Loader2 } from "lucide-react";
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (element: string | HTMLElement, options: Record<string, unknown>) => string;
+      reset: (widgetId: string) => void;
+      remove: (widgetId: string) => void;
+    };
+  }
+}
 
 export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   const [debugInfo, setDebugInfo] = useState<any>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
   const { toast } = useToast();
+
+  const renderTurnstile = useCallback(() => {
+    if (turnstileRef.current && window.turnstile && !widgetIdRef.current) {
+      widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
+        sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
+        theme: "dark",
+        callback: (token: string) => setTurnstileToken(token),
+        "expired-callback": () => setTurnstileToken(null),
+        "error-callback": () => setTurnstileToken(null),
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (window.turnstile) {
+      renderTurnstile();
+    } else {
+      const interval = setInterval(() => {
+        if (window.turnstile) {
+          renderTurnstile();
+          clearInterval(interval);
+        }
+      }, 500);
+      return () => clearInterval(interval);
+    }
+  }, [renderTurnstile]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,12 +62,19 @@ export default function ContactForm() {
     setSuccess(false);
     setDebugInfo(null);
 
+    if (!turnstileToken) {
+      setError("Please complete the verification check.");
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const formData = {
         name: (e.currentTarget.elements.namedItem('name') as HTMLInputElement).value,
         email: (e.currentTarget.elements.namedItem('email') as HTMLInputElement).value,
         subject: (e.currentTarget.elements.namedItem('subject') as HTMLInputElement).value,
         message: (e.currentTarget.elements.namedItem('message') as HTMLTextAreaElement).value,
+        turnstileToken,
       };
 
       console.log('Submitting form data:', { ...formData, messageLength: formData.message.length });
@@ -50,7 +96,10 @@ export default function ContactForm() {
           description: "We'll review your message and get back to you soon.",
         });
         formRef.current?.reset();
-        // Scroll to the success message
+        setTurnstileToken(null);
+        if (widgetIdRef.current && window.turnstile) {
+          window.turnstile.reset(widgetIdRef.current);
+        }
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         throw new Error(data.error || "Failed to send message");
@@ -153,9 +202,10 @@ export default function ContactForm() {
           placeholder="Tell us about your project..."
         />
       </div>
+      <div ref={turnstileRef} className="flex justify-center" />
       <Button
         type="submit"
-        disabled={isLoading}
+        disabled={isLoading || !turnstileToken}
         className="w-full bg-green-500 hover:bg-green-600 text-black font-semibold h-12 text-lg"
       >
         {isLoading ? (

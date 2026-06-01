@@ -29,7 +29,7 @@ const team = [
     role: "CEO & Founder",
     bio: "15+ years of software development and leadership experience. Passionate about building innovative solutions that transform businesses.",
     icon: Rocket,
-    achievements: ["Former Tech Lead at Fortune 500", "Multiple Industry Awards", "Published Author"]
+    achievements: ["15+ Years of Software Development", "End-to-End Client Portfolio Management", "Full-Stack & Cloud Technologies"]
   },
   {
     name: "Sarah Chen",

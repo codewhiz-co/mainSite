@@ -25,7 +25,7 @@ const values = [
 
 const team = [
   {
-    name: "Carlos Hempel",
+    name: "Marcus Elliot",
     role: "CEO & Founder",
     bio: "15+ years of software development and leadership experience. Passionate about building innovative solutions that transform businesses.",
     icon: Rocket,
